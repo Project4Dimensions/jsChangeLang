@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>jsChangeLang</title>
+
+<meta name="description" content="jsChangeLang: a JavaScript algorithm to change the html element lang attribute">
+<meta name="research" content="Project4Dimensions">
+<meta name="development" content="Project4Dimensions">
+<meta name="keywords" content="jsChangeLang JavaScript algorithm change html element lang attribute">
+<meta name="application-name" content="jsChangeLang">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+<h1><small id="title">Why jsChangeLang?</small></h1>
+<p>
+  <span id="descr">
+    jsChangeLang is a JavaScript algorithm to change the html element
+    lang attribute; it can be used to create single-page apps that let
+    people select different languages for the content.
+  </span>
+</p>
+
+<hr class="double">
+<p>
+  <select id="select0" class="select" name="option" onchange="jsChangeLang(); newLang(2);">
+    
+    <option value="en">English</option>
+    <option value="it">Italiano</option>
+    <option value="pt">Português</option>
+  </select>
+  <input class="input" value="Change language" onclick="main()" type="submit">
+</p>
+<hr class="double">
+
+<h2><small id="howTo">How to use jsChangeLang</small></h2>
+<p>
+  <span id="seeEg">See the example in the project’s docs folder:</span>
+  <a href="//github.com/Project4Dimensions/jsChangeLang/">
+    <pre>https://github.com/Project4Dimensions/jsChangeLang/</pre>
+  </a>
+</p>
+
+<h2><small id="refs">References</small></h2>
+<p>
+  Conijn, Frank. 2015. “Html Select - Get Selected Value in Dropdown
+  List Using JavaScript?”
+  <em>Stack Overflow</em>. May 23.<br>
+  <a href="http://stackoverflow.com/questions/1085801/get-selected-value-in-dropdown-list-using-javascript">
+    http://stackoverflow.com/questions/1085801/get-selected-value-in-dropdown-list-using-javascript
+  </a>.
+</p>
+<p>
+  MDN contributors. 2016. “HTMLSelectElement.selectedIndex - Web APIs.”
+  <em>Mozilla Developer Network</em>. June 7.<br>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/selectedIndex">
+    https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/selectedIndex
+  </a>.
+</p>
+<p>
+  MDN contributors. 2017. “HTMLSelectElement - Web APIs.”
+  <em>Mozilla Developer Network</em>. January 26.<br>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement">
+    https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement
+  </a>.
+</p>
+
+<script src="change-lang.js"></script>
+<script>
+/* validated with JSLint edition 2018-02-27 (http://jslint.com/)
+ * no errors reported (JSLint options: Assume… a browser)
+ */
+
+function langs() {
+    "use strict";
+    return {
+        "en": [
+            "jsChangeLang: a JavaScript algorithm to change the "
+                    + "html element lang attribute",
+            "jsChangeLang JavaScript algorithm change html element "
+                    + "lang attribute",
+            "Why jsChangeLang?",
+            "jsChangeLang is a JavaScript algorithm to change the "
+                    + "html element lang attribute; it can be used "
+                    + "to create single-page apps that let people "
+                    + "select different languages for the content.",
+            "Change language",
+            "How to use jsChangeLang",
+            "See the example in the project’s docs folder:",
+            "References"
+        ],
+        "it": [
+            "jsChangeLang: un algoritmo JavaScript per modificare "
+                    + "l'attributo lang dell'elemento html",
+            "jsChangeLang JavaScript algoritmo modifica attributo lang "
+                    + "elemento html",
+            "Perchè jsChangeLang?",
+            "jsChangeLang jsChangeLang è un algoritmo JavaScript per "
+                    + "modificare l'attributo lang dell'elemento html; "
+                    + "può essere utilizzato per creare app a singola "
+                    + "pagina che consentono alle persone di "
+                    + "selezionare lingue diverse per il contenuto.",
+            "Cambia lingua",
+            "Come usare jsChangeLang",
+            "Vedere l’esempio nella cartella docs del progetto:",
+            "Riferimenti"
+        ],
+        "pt": [
+            "jsChangeLang: um algoritmo JavaScript para alterar "
+                    + "o atributo lang do elemento html",
+            "jsChangeLang JavaScript algoritmo alterar atributo lang "
+                    + "elemento html",
+            "Porque jsChangeLang?",
+            "jsChangeLang é um algoritmo de JavaScript para alterar "
+                    + "o atributo lang do elemento html; isso pode "
+                    + "ser usado para criar aplicativos de uma página "
+                    + "que permitem que as pessoas selecionem "
+                    + "diferentes idiomas para o conteúdo.",
+            "Mudar idioma",
+            "Como usar jsChangeLang",
+            "Veja o exemplo na pasta docs do projeto:",
+            "Referências"
+        ]
+    };
+}
+
+function tagSetAttr(tag, i, attr, value) {
+    "use strict";
+    return document.getElementsByTagName(tag)[i].setAttribute(attr, value);
+}
+
+function main() {
+    "use strict";
+    tagSetAttr("meta", 3, "content", langs()[jsChangeLang()][0]);
+    tagSetAttr("meta", 6, "content", langs()[jsChangeLang()][1]);
+    document.getElementById("title").innerHTML = langs()[jsChangeLang()][2];
+    document.getElementById("descr").innerHTML = langs()[jsChangeLang()][3];
+    tagSetAttr("input", 0, "value", langs()[jsChangeLang()][4]);
+    document.getElementById("howTo").innerHTML = langs()[jsChangeLang()][5];
+    document.getElementById("seeEg").innerHTML = langs()[jsChangeLang()][6];
+    document.getElementById("refs").innerHTML = langs()[jsChangeLang()][7];
+}
+</script>
+</body>
+</html>
